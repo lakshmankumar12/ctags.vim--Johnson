@@ -321,13 +321,15 @@ function! s:SetTagDisplay()
 	let w:tag_name = l:tag_name
 	let s:ruler = &ruler
 	if &ruler
-	    let &statusline='%<%f %(%h%m%r %)%=%{TagName()} %-15.15(%l,%c%V%)%P'
+            let &statusline='%F%h%m%r %h%w%y col:%c lin:%l,%L %#WindowNumber#buf:%n win:%{WindowNumber()} %{GetMode()}%#StatusLine# reg:%{v:register} %=%{TagName()} %V%P'
+	    "let &statusline='%<%f %(%h%m%r %)%=%{TagName()} %-15.15(%l,%c%V%)%P'
 					" Equivalent to default status
 					" line with 'ruler' set:
 					"
 					" '%<%f %h%m%r%=%-15.15(%l,%c%V%)%P'
 	else
-	    let &statusline='%<%f %(%h%m%r %)%=%{TagName()}'
+            let &statusline='%F%h%m%r %h%w%y col:%c lin:%l,%L buf:%n win:%{WindowNumber()} %{GetMode()} reg:%{v:register} %=%{TagName()} %-15.15(%l,%c%V%)%P'
+	    "let &statusline='%<%f %(%h%m%r %)%=%{TagName()}'
 	endif
 					" The %(%) pair around the "%h%m%r "
 					" is there to suppress the extra
